@@ -198,6 +198,7 @@ pub(crate) fn from_token(ty: u16, value: Token) -> String {
         x if x == TK_QUERY as u16 => "QUERY".to_owned(),
         x if x == TK_RAISE as u16 => "RAISE".to_owned(),
         x if x == TK_RANGE as u16 => "RANGE".to_owned(),
+        x if x == TK_READONLY as u16 => "READONLY".to_owned(),
         x if x == TK_RECURSIVE as u16 => "RECURSIVE".to_owned(),
         //x if x == TK_REFERENCES as u16 => "REFERENCES".to_owned(),
         x if x == TK_REINDEX as u16 => "REINDEX".to_owned(),
@@ -397,6 +398,7 @@ impl TokenType {
             TK_SEMI => Some(";"),
             TK_SLASH => Some("/"),
             TK_STAR => Some("*"),
+            TK_READONLY => Some("READONLY"),
             _ => None,
         }
     }

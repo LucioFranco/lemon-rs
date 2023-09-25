@@ -96,6 +96,7 @@ transtype(A) ::= .             {A = None;}
 transtype(A) ::= DEFERRED.  {A = Some(TransactionType::Deferred);}
 transtype(A) ::= IMMEDIATE. {A = Some(TransactionType::Immediate);}
 transtype(A) ::= EXCLUSIVE. {A = Some(TransactionType::Exclusive);}
+transtype(A) ::= READONLY. {A = Some(TransactionType::ReadOnly);}
 cmd ::= COMMIT|END trans_opt(X).   {self.ctx.stmt = Some(Stmt::Commit(X));}
 cmd ::= ROLLBACK trans_opt(X).     {self.ctx.stmt = Some(Stmt::Rollback{tx_name: X, savepoint_name: None});}
 
@@ -190,7 +191,7 @@ columnname(A) ::= nm(X) typetoken(Y). {A = (X, Y);}
   CONFLICT DATABASE DEFERRED DESC DETACH DO
   EACH END EXCLUSIVE EXPLAIN FAIL FOR
   IGNORE IMMEDIATE INITIALLY INSTEAD LIKE_KW MATCH NO PLAN
-  QUERY KEY OF OFFSET PRAGMA RAISE RECURSIVE RELEASE REPLACE RESTRICT ROW ROWS
+  QUERY KEY OF OFFSET PRAGMA RAISE READONLY RECURSIVE RELEASE REPLACE RESTRICT ROW ROWS
   ROLLBACK SAVEPOINT TEMP TRIGGER VACUUM VIEW VIRTUAL WITH WITHOUT
   NULLS FIRST LAST
 %ifdef SQLITE_OMIT_COMPOUND_SELECT

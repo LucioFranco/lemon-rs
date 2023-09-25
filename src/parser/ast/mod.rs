@@ -2925,6 +2925,7 @@ pub enum TransactionType {
     Deferred, // default
     Immediate,
     Exclusive,
+    ReadOnly,
 }
 impl ToTokens for TransactionType {
     fn to_tokens<S: TokenStream>(&self, s: &mut S) -> Result<(), S::Error> {
@@ -2933,6 +2934,7 @@ impl ToTokens for TransactionType {
                 TransactionType::Deferred => TK_DEFERRED,
                 TransactionType::Immediate => TK_IMMEDIATE,
                 TransactionType::Exclusive => TK_EXCLUSIVE,
+                TransactionType::ReadOnly => TK_READONLY,
             },
             None,
         )

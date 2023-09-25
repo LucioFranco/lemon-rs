@@ -162,6 +162,7 @@ fn main() -> Result<()> {
             .entry(UncasedStr::new("QUERY"), "TokenType::TK_QUERY")
             .entry(UncasedStr::new("RAISE"), "TokenType::TK_RAISE")
             .entry(UncasedStr::new("RANGE"), "TokenType::TK_RANGE")
+            .entry(UncasedStr::new("READONLY"), "TokenType::TK_READONLY")
             .entry(UncasedStr::new("RECURSIVE"), "TokenType::TK_RECURSIVE")
             .entry(UncasedStr::new("REFERENCES"), "TokenType::TK_REFERENCES")
             .entry(UncasedStr::new("REGEXP"), "TokenType::TK_LIKE_KW")
